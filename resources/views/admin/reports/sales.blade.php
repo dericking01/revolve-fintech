@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h1>Sales Report</h1>
+    <h1>Loans Report</h1>
 
     <!-- Export Form -->
     <div class="card shadow-sm p-3 mb-4 rounded">
         <div class="card-body">
-            <form action="{{ route('export.sales-report') }}" method="GET">
+            <form action="#" method="GET">
                 @csrf
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -35,7 +35,7 @@
             data: {
                 labels: {!! json_encode($dates) !!},
                 datasets: [{
-                    label: 'Total Sales',
+                    label: 'Total Loans',
                     data: {!! json_encode($totalSales) !!},
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',

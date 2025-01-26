@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container my-4">
-    <h3 class="text-center text-primary mb-4">Export Stock Report</h3>
+    <h3 class="text-center text-primary mb-4">Export Outstanding Loans Report</h3>
 
     <!-- Form to select date range and export data -->
     <div class="card shadow-sm p-3 mb-4 rounded">
@@ -24,7 +24,7 @@
 
     <!-- Product Distributions Table -->
     <div class="card shadow-sm p-3 mb-4 bg-light rounded">
-        <h4 class="text-dark text-center mb-3">Stock Report Data:</h4>
+        <h4 class="text-dark text-center mb-3">Loans Data:</h4>
         <div class="table-responsive">
             {{-- <table class="table table-bordered table-striped table-hover fs--1 mb-0"> --}}
             <table class="table data-table table-bordered table-striped fs--1 mb-0">
@@ -33,10 +33,10 @@
                     <tr>
                         <th>Date</th>
                         <th>Branch Name</th>
-                        <th>Product Name</th>
-                        <th>Total Quantity</th>
-                        <th>Available Quantity</th>
-                        <th>Unit Price</th>
+                        <th>Loan Amount</th>
+                        <th>Interest</th>
+                        <th>Paid To be Amount</th>
+                        <th>Due Date</th>
                         <th>Description</th>
                     </tr>
                 </thead>

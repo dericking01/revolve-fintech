@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Branch;
+use App\Models\Staff;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Faker\Factory as Faker;
+
 
 class StaffSeeder extends Seeder
 {
@@ -14,48 +16,31 @@ class StaffSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed three staff records with admin_id set to 1 and status set to 'active'
-        DB::table('staffs')->insert([
-            [
+        $faker = Faker::create();
+
+        // Fetch all branch IDs to ensure validity
+        $branchIds = Branch::pluck('id')->toArray();
+
+        if (empty($branchIds)) {
+            $this->command->error('No branches found. Please seed the branches table first.');
+            return;
+        }
+
+        // Seed staff records
+        foreach (range(1, 10) as $index) {
+            Staff::create([
                 'admin_id' => 1,
-                'name' => 'Alex John',
-                'email' => 'staff1@example.com',
-                'phone' => '255876543214',
+                'branch_id' => $faker->randomElement($branchIds), // Random valid branch ID
+                'name' => $faker->name,
+                'email' => $faker->unique()->safeEmail,
+                'phone' => '255' . $faker->numberBetween(100000000, 999999999),
                 'role' => 'staff',
-                'status' => 'active',
-                'location' => 'Mbezi Beach',
-                'password' => Hash::make('staff2025'), // You can use any default password here
-                // Add other fields as needed
+                'status' => $faker->randomElement(['active', 'inactive']),
+                'location' => $faker->city,
+                'password' => Hash::make('staff2025'),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'admin_id' => 1,
-                'name' => 'Mariam Peter',
-                'email' => 'staff2@vetlink.com',
-                'phone' => '255876543210',
-                'role' => 'staff',
-                'status' => 'active',
-                'location' => 'Sinza',
-                'password' => Hash::make('staff2025'), // You can use any default password here
-                // Add other fields as needed
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'admin_id' => 1,
-                'name' => 'Staff 3',
-                'email' => 'staff3@example.com',
-                'phone' => '255876543211',
-                'role' => 'staff',
-                'status' => 'active',
-                'location' => 'Kinondoni',
-                'password' => Hash::make('staff2025'), // You can use any default password here
-                // Add other fields as needed
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            // Add more staff records if needed
-        ]);
+            ]);
+        }
     }
 }

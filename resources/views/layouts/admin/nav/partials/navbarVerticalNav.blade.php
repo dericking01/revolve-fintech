@@ -78,7 +78,7 @@
     <a class="nav-link @if(request()->routeIs('admin.listadmins')) active @endif" href="{{ route('admin.listadmins') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-user-circle"></span></span><span
-        class="nav-link-text ps-1">Dodoki Admins</span></div>
+        class="nav-link-text ps-1">Revolve Admins</span></div>
     </a><!-- more inner pages-->
 
     <a class="nav-link @if(request()->routeIs('admin.liststaffs')) active @endif"  href="{{ route('admin.liststaffs') }}">
@@ -92,15 +92,21 @@
             class="fas fa-university"></span></span><span
         class="nav-link-text ps-1">Our Branches</span></div>
     </a>
-
+{{--
     <a class="nav-link @if(request()->routeIs('admin.listagents')) active @endif"  href="{{ route('admin.listagents') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-user-secret"></span></span><span
         class="nav-link-text ps-1">Our Customers</span></div>
+    </a> --}}
+
+    <a class="nav-link @if(request()->routeIs('admin.listborrowers')) active @endif"  href="{{ route('admin.listborrowers') }}">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+            class="fas fa-user-secret"></span></span><span
+        class="nav-link-text ps-1">Our Loanees</span></div>
     </a>
 </li>
 
-<li class="nav-item">
+{{-- <li class="nav-item">
     <!-- label-->
     <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
         <div class="col-auto navbar-vertical-label">Manage Products</div>
@@ -119,7 +125,7 @@
         class="nav-link-text ps-1">Warehouse</span></div>
     </a><!-- more inner pages-->
 
-</li>
+</li> --}}
 
 <li class="nav-item">
     <!-- label-->
@@ -132,17 +138,17 @@
     <a class="nav-link @if(request()->routeIs('reports.sales')) active @endif" href="{{ route('reports.sales') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-book"></span></span><span
-        class="nav-link-text ps-1">Sales</span></div>
+        class="nav-link-text ps-1">Loans</span></div>
     </a><!-- more inner pages-->
     <a class="nav-link @if(request()->routeIs('reports.product-distributions')) active @endif" href="{{ route('reports.product-distributions') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-bars"></span></span><span
-        class="nav-link-text ps-1">Distributions</span></div>
+        class="nav-link-text ps-1">Disbursements</span></div>
     </a><!-- more inner pages-->
     <a class="nav-link @if(request()->routeIs('reports.stock')) active @endif" href="{{ route('reports.stock') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-archive"></span></span><span
-        class="nav-link-text ps-1">Stock Report</span></div>
+        class="nav-link-text ps-1">Outstanding Loans</span></div>
     </a><!-- more inner pages-->
 
 </li>
@@ -176,25 +182,36 @@
             <hr class="mb-0 navbar-vertical-divider" />
         </div>
     </div><!-- parent pages-->
-    <a class="nav-link @if(request()->routeIs('admin.createOrder')) active @endif" href="{{ route('admin.createOrder') }} ">
+    {{-- <a class="nav-link @if(request()->routeIs('admin.createOrder')) active @endif" href="{{ route('admin.createOrder') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fa fa-cart-plus"></span></span><span
         class="nav-link-text ps-1">Create Order</span></div>
+    </a><!-- more inner pages--> --}}
+
+    <a class="nav-link @if(request()->routeIs('admin.createLoan')) active @endif" href="{{ route('admin.createLoan') }} ">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+            class="fa fa-cart-plus"></span></span><span
+        class="nav-link-text ps-1">Create Loan</span></div>
     </a><!-- more inner pages-->
 
-    <a class="nav-link @if(request()->routeIs('admin.pendingOrder')) active @endif" href="{{ route('admin.pendingOrder') }} ">
+    {{-- <a class="nav-link @if(request()->routeIs('admin.pendingOrder')) active @endif" href="{{ route('admin.pendingOrder') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-spinner"></span></span><span
-        class="nav-link-text ps-1">Pending Orders</span></div>
+        class="nav-link-text ps-1">Pending Orders</span></div> --}}
+    </a><!-- more inner pages-->
+    <a class="nav-link @if(request()->routeIs('admin.pendingLoans')) active @endif" href="{{ route('admin.pendingLoans') }} ">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+            class="fas fa-spinner"></span></span><span
+        class="nav-link-text ps-1">Pending Loans</span></div>
     </a><!-- more inner pages-->
 
-    <a class="nav-link @if(request()->routeIs('admin.partialorder')) active @endif" href="{{ route('admin.partialorder') }} ">
+    {{-- <a class="nav-link @if(request()->routeIs('admin.partialorder')) active @endif" href="{{ route('admin.partialorder') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-spinner fa-spin"></span></span><span
         class="nav-link-text ps-1">Partial/Credit Orders</span></div>
-    </a><!-- more inner pages-->
+    </a><!-- more inner pages--> --}}
 
-    <a class="nav-link @if(request()->routeIs('admin.paypointorder')) active @endif" href="{{ route('admin.paypointorder') }} ">
+    {{-- <a class="nav-link @if(request()->routeIs('admin.paypointorder')) active @endif" href="{{ route('admin.paypointorder') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fa fa-barcode"></span></span><span
         class="nav-link-text ps-1">Pay-Point Orders</span></div>
@@ -210,7 +227,7 @@
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-times-circle"></span></span><span
         class="nav-link-text ps-1">Rejected Orders</span></div>
-    </a><!-- more inner pages-->
+    </a><!-- more inner pages--> --}}
 
 </li>
 

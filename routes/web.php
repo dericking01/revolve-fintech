@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\invoice\InvoiceController;
 use App\Http\Controllers\admin\order\OrdersController;
 use App\Http\Controllers\admin\products\ProductsController;
 use App\Http\Controllers\admin\AdminsController;
+use App\Http\Controllers\admin\BorrowersController;
+use App\Http\Controllers\admin\loans\LoansController;
 use App\Http\Controllers\admin\products\AdminProductExportController;
 use App\Http\Controllers\admin\reports\ReportsController;
 use App\Http\Controllers\admin\StaffsController;
@@ -86,7 +88,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
          //vetlink-users routes
-        Route::group(['prefix' => 'vetinfo'], function () {
+        Route::group(['prefix' => 'revinfo'], function () {
             Route::get('users', [UsersController::class, 'index'])->name('admin.listusers');
             Route::delete('destroy-buyer', [UsersController::class, 'destroyBuyer'])->name('agent.destroybuyer');
             Route::get('sellers', [UsersController::class, 'sellers'])->name('admin.listsellers');
@@ -94,6 +96,14 @@ Route::group(['prefix' => 'admin'], function () {
             Route::delete('destroy-seller', [UsersController::class, 'destroySeller'])->name('seller.destroyseller');
             Route::get('view-seller/{id}', [UsersController::class, 'viewSeller'])->name('seller.view');
             Route::get('agents', [UsersController::class, 'agents'])->name('admin.listagents');
+            Route::get('borrowers', [BorrowersController::class, 'borrowers'])->name('admin.listborrowers');
+            Route::post('storeborrower', [BorrowersController::class, 'storeBorrower'])->name('admin.storeborrower');
+            Route::put('update-borrower/{id}', [BorrowersController::class, 'updateBorrower'])->name('admin.borrowerupdate');
+            Route::delete('destroy-borrower', [BorrowersController::class, 'destroy'])->name('borrower.destroy');
+            Route::get('view-borrower/{id}', [BorrowersController::class, 'viewBorrower'])->name('agent.view-borrower');
+            Route::get('view-loan/{id}', [BorrowersController::class, 'viewLoan'])->name('borrower.view-loan');
+
+
             Route::post('storeagent', [UsersController::class, 'storeAgent'])->name('admin.storeagent');
             Route::put('update/{id}', [UsersController::class, 'updateAgent'])->name('agent.update');
             Route::delete('destroy', [UsersController::class, 'destroy'])->name('agent.destroyagent');
@@ -132,6 +142,12 @@ Route::group(['prefix' => 'admin'], function () {
         //  Orders Routes
         Route::group(['prefix' => 'orders'], function () {
             Route::get('create-order', [OrdersController::class, 'orderForm'])->name('admin.createOrder');
+            Route::get('create-loan', [LoansController::class, 'LoanForm'])->name('admin.createLoan');
+            Route::post('store-loan', [LoansController::class, 'storeLoan'])->name('admin.storeLoan');
+            Route::get('pending-loans', [LoansController::class, 'pendingLoansindex'])->name('admin.pendingLoans');
+            Route::put('update-loan/{id}', [LoansController::class, 'updateLoan'])->name('admin.loan.update');
+            Route::delete('destroy-loan', [LoansController::class, 'deleteLoan'])->name('admin.loan.delete');
+
             Route::post('store', [OrdersController::class, 'store'])->name('admin.storeOrder');
             Route::get('pendingorder', [OrdersController::class, 'pendingOrderindex'])->name('admin.pendingOrder');
             Route::put('update/{id}', [OrdersController::class, 'updateOrder'])->name('admin.pendingOrder.update');

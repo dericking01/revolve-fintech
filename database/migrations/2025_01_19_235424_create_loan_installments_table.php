@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('loan_id');
             $table->decimal('installed_amount', 15, 2);
-            $table->date('overdue_date')->nullable();
             $table->date('paid_date')->nullable();
-            $table->enum('status', ['overdue', 'paid', 'late'])->default('paid');
+            $table->date('due_date')->nullable();
+            $table->enum('status', ['due', 'paid', 'late'])->default('paid');
             $table->timestamps();
             $table->softDeletes();
 

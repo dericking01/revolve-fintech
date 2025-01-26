@@ -31,4 +31,14 @@ class Borrower extends Model
         'password',
         'avatar'
     ];
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

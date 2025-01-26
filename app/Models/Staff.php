@@ -38,4 +38,9 @@ class Staff extends Authenticatable
         return $this->morphMany(Loan::class, 'created_by');
     }
 
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
 }

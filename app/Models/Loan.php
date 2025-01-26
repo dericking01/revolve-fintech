@@ -26,6 +26,12 @@ class Loan extends Model
         'status',
     ];
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'due_date' => 'datetime',
+    ];
+
+
     public function creator()
     {
         return $this->morphTo('created_by');
@@ -34,6 +40,44 @@ class Loan extends Model
     public function installments()
     {
         return $this->hasMany(LoanInstallment::class);
+    }
+
+    public function borrower()
+    {
+        return $this->belongsTo(Borrower::class);
+    }
+
+    public function calculatePenalty()
+    {
+        $overdueDays = now()->diffInDays($this->due_date, false); // Negative if overdue
+        if ($overdueDays > 0) {
+            $penaltyRate = $this->daily_penalty_rate / 100; // Convert percentage to decimal
+            return $this->loan_amount * $penaltyRate * $overdueDays;
+        }
+
+        return 0.00;
+    }
+
+    public function updatePenalty()
+    {
+        $penalty = $this->calculatePenalty();
+        $this->penalty_amount = $penalty;
+
+        // Recalculate total amount to be paid
+        $this->amount_to_be_paid = $this->loan_amount + $penalty - $this->paid_amount;
+
+        $this->save();
+    }
+
+    public function addInstallment($installedAmount)
+    {
+        // Increment paid amount
+        $this->paid_amount += $installedAmount;
+
+        // Recalculate total amount to be paid
+        $this->amount_to_be_paid = $this->loan_amount + $this->penalty_amount - $this->paid_amount;
+
+        $this->save();
     }
 
 }

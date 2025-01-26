@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('staffs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('branch_id')->nullable();
             $table->string('name');
             $table->string('email')->unique()->nullable();
             $table->string('phone');
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->softDeletes();
 
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('set null');
 
         });
     }

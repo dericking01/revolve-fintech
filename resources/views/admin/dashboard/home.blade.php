@@ -12,11 +12,11 @@
               <div class="position-relative z-2">
                 <div>
                   <h3 class="text-primary mb-1">{{ \App\Helpers\SettingsHelper::getGreeting() }}, {{ auth('admin')->user()->name }}!</h3>
-                  <p>Here’s what happening with your store today </p>
+                  <p>Here’s what happening with your Loans App </p>
                 </div>
                 <div class="d-flex py-3 px-2 text-center">
                   <div class="ps-4">
-                    <p class="text-600 fs--1">Today’s Dodoki sales </p>
+                    <p class="text-600 fs--1">Today’s Loans </p>
                     <h4 class="text-800 mb-0">Tsh {{ number_format($totalCompletedAmount) }}/=</h4>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
             <div class="card-body">
               <div class="row flex-between-center g-0">
                 <div class="col-6 d-lg-block flex-between-center">
-                  <h6 class="mb-2 text-900">Active Customer</h6>
+                  <h6 class="mb-2 text-900">Active Loanees</h6>
                   <h4 class="fs-3 fw-normal text-700 mb-0">{{$totalActiveAgents}}</h4>
                   {{-- <a href="#">View all</a> --}}
                 </div>
@@ -88,7 +88,7 @@
             <div class="card-body">
               <div class="row flex-between-center g-0">
                 <div class="col-6 d-lg-block flex-between-center">
-                  <h6 class="mb-2 text-800">Dormant Customer</h6>
+                  <h6 class="mb-2 text-800">Dormant Loanees</h6>
                   <h4 class="fs-3 fw-normal text-700 mb-0">{{$totalInactiveAgents}}</h4>
                   {{-- <a href="#">View all</a> --}}
                 </div>
@@ -110,7 +110,7 @@
             <div class="card-body">
               <div class="row flex-between-center g-0">
                 <div class="col-6 d-lg-block flex-between-center">
-                  <h6 class="mb-2 text-900">Total Customer</h6>
+                  <h6 class="mb-2 text-900">Total Loanees</h6>
                   <h4 class="fs-3 fw-normal text-700 mb-0"> {{$totalAgents}} </h4>
                   <a href="{{route('admin.listagents')}}">View all</a>
                 </div>
@@ -132,10 +132,10 @@
     <div class="col-xxl-6 col-xl-12">
       <div class="card py-3 mb-3">
         <div class="card-body py-3">
-          <h5 class="mb-2 text-primary">DODOKI Orders</h5>
+          <h5 class="mb-2 text-primary">REVOLVE's Loans</h5>
           <div class="row g-0">
             <div class="col-6 col-md-4 border-200 border-bottom border-end pb-4">
-              <h6 class="pb-1 text-700">Orders </h6>
+              <h6 class="pb-1 text-700">Loans </h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2">{{$totalOrders}} </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">0 </h6>
@@ -143,7 +143,7 @@
               </div>
             </div>
             <div class="col-6 col-md-4 border-200 border-bottom border-end-md pb-4 ps-3">
-              <h6 class="pb-1 text-700">Items sold </h6>
+              <h6 class="pb-1 text-700">Loans issued </h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2">{{$totalItems}} </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">0 </h6>
@@ -151,7 +151,7 @@
               </div>
             </div>
             <div class="col-6 col-md-4 border-200 border-bottom border-end border-end-md-0 pb-4 pt-4 pt-md-0 ps-md-3">
-              <h6 class="pb-1 text-700">Total sale </h6>
+              <h6 class="pb-1 text-700">Total Loans </h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2">Tsh {{number_format($totalSale)}}/= </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">Tsh 0/= </h6>
@@ -159,7 +159,7 @@
               </div>
             </div>
             <div class="col-6 col-md-4 border-200 border-bottom border-bottom-md-0 border-end-md pt-4 pb-md-0 ps-3 ps-md-0">
-              <h6 class="pb-1 text-700">Pending Orders</h6>
+              <h6 class="pb-1 text-700">Pending Loans</h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2"> {{$PendingOrders}} </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">0 </h6>
@@ -167,7 +167,7 @@
               </div>
             </div>
             <div class="col-6 col-md-4 border-200 border-bottom-md-0 border-end pt-4 pb-md-0 ps-md-3">
-              <h6 class="pb-1 text-700">Completed Orders </h6>
+              <h6 class="pb-1 text-700">Paid Loans </h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2">{{$CompletedOrders}} </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">0 </h6>
@@ -175,7 +175,7 @@
               </div>
             </div>
             <div class="col-6 col-md-4 pb-0 pt-4 ps-3">
-              <h6 class="pb-1 text-700">Rejected Orders </h6>
+              <h6 class="pb-1 text-700">Rejected Loans </h6>
               <p class="font-sans-serif lh-1 mb-1 fs-2">{{$RejectedOrders}} </p>
               <div class="d-flex align-items-center">
                 <h6 class="fs--1 text-500 mb-0">0 </h6>
@@ -213,7 +213,7 @@
             <div class="card-header">
               <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                  <h5 class="mb-0" data-anchor="data-anchor" id="bar-chart">Daily Sales Chart<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#bar-chart" style="padding-left: 0.375em;"></a></h5>
+                  <h5 class="mb-0" data-anchor="data-anchor" id="bar-chart">Daily Loans Chart<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#bar-chart" style="padding-left: 0.375em;"></a></h5>
                 </div>
                 {{-- <div class="col-auto ms-auto">
                   <div class="nav nav-pills nav-pills-falcon flex-grow-1" role="tablist"><button class="btn btn-sm active" data-bs-toggle="pill" data-bs-target="#dom-bc8e9a9e-e14d-48b7-b378-449e5a885a8e" type="button" role="tab" aria-controls="dom-bc8e9a9e-e14d-48b7-b378-449e5a885a8e" aria-selected="true" id="tab-dom-bc8e9a9e-e14d-48b7-b378-449e5a885a8e">Preview</button><button class="btn btn-sm" data-bs-toggle="pill" data-bs-target="#dom-fbf63e9a-f181-4770-853f-4983dc922966" type="button" role="tab" aria-controls="dom-fbf63e9a-f181-4770-853f-4983dc922966" aria-selected="false" id="tab-dom-fbf63e9a-f181-4770-853f-4983dc922966" tabindex="-1">Code</button></div>
@@ -242,7 +242,7 @@
             <div class="card-header">
               <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                  <h5 class="mb-0" data-anchor="data-anchor" id="line-chart">Monthly Sales Chart<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#line-chart" style="padding-left: 0.375em;"></a></h5>
+                  <h5 class="mb-0" data-anchor="data-anchor" id="line-chart">Monthly Loans Chart<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#line-chart" style="padding-left: 0.375em;"></a></h5>
                 </div>
                 {{-- <div class="col-auto ms-auto">
                   <div class="nav nav-pills nav-pills-falcon flex-grow-1" role="tablist"><button class="btn btn-sm active" data-bs-toggle="pill" data-bs-target="#dom-0b8a4b6d-d049-420c-9bab-7195d2a70ef5" type="button" role="tab" aria-controls="dom-0b8a4b6d-d049-420c-9bab-7195d2a70ef5" aria-selected="true" id="tab-dom-0b8a4b6d-d049-420c-9bab-7195d2a70ef5">Preview</button><button class="btn btn-sm" data-bs-toggle="pill" data-bs-target="#dom-557a3f1e-b288-48fe-a18c-1631ea60b01d" type="button" role="tab" aria-controls="dom-557a3f1e-b288-48fe-a18c-1631ea60b01d" aria-selected="false" id="tab-dom-557a3f1e-b288-48fe-a18c-1631ea60b01d" tabindex="-1">Code</button></div>
@@ -278,11 +278,11 @@
             <table class="table table-dashboard mb-0 table-borderless fs--1 border-200">
               <thead class="bg-light">
                 <tr class="text-900">
-                  <th>Best Selling Products</th>
-                  <th class="text-center">Orders( {{$totalOrders}} )</th>
+                  <th>Loans</th>
+                  {{-- <th class="text-center">Orders( {{$totalOrders}} )</th>
                   <th class="text-center">Order(%)</th>
-                  <th class="text-end">Revenue</th>
-                  <th class="pe-x1 text-end" style="width: 8rem">Revenue (%)</th>
+                  <th class="text-end">Revenue</th> --}}
+                  <th class="pe-x1 text-end" style="width: 8rem">Paid (%)</th>
                 </tr>
               </thead>
               <tbody>

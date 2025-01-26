@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container my-4">
-    <h3 class="text-center text-primary mb-4">Export Product Distributions</h3>
+    <h3 class="text-center text-primary mb-4">Export Loans Disbursements</h3>
 
     <!-- Form to select date range and export data -->
     <div class="card shadow-sm p-3 mb-4 rounded">
         <div class="card-body">
-            <form action="{{ route('export.product-distributions') }}" method="GET">
+            <form action="#" method="GET">
                 @csrf
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -24,7 +24,7 @@
 
     <!-- Product Distributions Table -->
     <div class="card shadow-sm p-3 mb-4 bg-light rounded">
-        <h4 class="text-dark text-center mb-3">Product Distributions:</h4>
+        <h4 class="text-dark text-center mb-3">Loans Disbursements:</h4>
         <div class="table-responsive">
             {{-- <table class="table table-bordered table-striped table-hover fs--1 mb-0"> --}}
             <table class="table data-table table-bordered table-striped fs--1 mb-0">
@@ -33,10 +33,10 @@
                     <tr>
                         <th>Date</th>
                         <th>To Branch</th>
-                        <th>Product Name</th>
-                        <th>Quantity Distributed</th>
-                        <th>Units</th>
-                        <th>Price</th>
+                        <th>Loanee's Name</th>
+                        <th>Disbursement Amount</th>
+                        <th>Loaned Amount</th>
+                        <th>Amount to be Paid</th>
                         <th>Description</th>
                     </tr>
                 </thead>

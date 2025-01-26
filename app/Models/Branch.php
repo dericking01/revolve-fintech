@@ -42,4 +42,14 @@ class Branch extends Model
     {
         return $this->hasMany(ProductStock::class);
     }
+
+    public function staffs()
+    {
+        return $this->hasMany(Staff::class);
+    }
+
+    public function borrowers()
+    {
+        return $this->hasMany(Borrower::class);
+    }
 }
