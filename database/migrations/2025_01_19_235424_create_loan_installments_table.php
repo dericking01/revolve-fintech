@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('loan_installments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('loan_id');
-            $table->decimal('installed_amount', 15, 2);
+            $table->integer('installed_amount');
             $table->date('paid_date')->nullable();
             $table->date('due_date')->nullable();
-            $table->enum('status', ['due', 'paid', 'late'])->default('paid');
+            $table->enum('status', ['pending', 'paid', 'overdue'])->default('pending');
             $table->timestamps();
             $table->softDeletes();
 

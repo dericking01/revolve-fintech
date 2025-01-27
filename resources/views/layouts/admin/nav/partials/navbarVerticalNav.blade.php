@@ -194,40 +194,35 @@
         class="nav-link-text ps-1">Create Loan</span></div>
     </a><!-- more inner pages-->
 
-    {{-- <a class="nav-link @if(request()->routeIs('admin.pendingOrder')) active @endif" href="{{ route('admin.pendingOrder') }} ">
-        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-            class="fas fa-spinner"></span></span><span
-        class="nav-link-text ps-1">Pending Orders</span></div> --}}
-    </a><!-- more inner pages-->
     <a class="nav-link @if(request()->routeIs('admin.pendingLoans')) active @endif" href="{{ route('admin.pendingLoans') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-spinner"></span></span><span
         class="nav-link-text ps-1">Pending Loans</span></div>
     </a><!-- more inner pages-->
 
-    {{-- <a class="nav-link @if(request()->routeIs('admin.partialorder')) active @endif" href="{{ route('admin.partialorder') }} ">
+    <a class="nav-link @if(request()->routeIs('admin.ongoingLoans')) active @endif" href="{{ route('admin.ongoingLoans') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-spinner fa-spin"></span></span><span
-        class="nav-link-text ps-1">Partial/Credit Orders</span></div>
-    </a><!-- more inner pages--> --}}
+        class="nav-link-text ps-1">Ongoing Loans</span></div>
+    </a><!-- more inner pages-->
 
-    {{-- <a class="nav-link @if(request()->routeIs('admin.paypointorder')) active @endif" href="{{ route('admin.paypointorder') }} ">
+    <a class="nav-link @if(request()->routeIs('admin.paidLoans')) active @endif" href="{{ route('admin.paidLoans') }} ">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fa fa-barcode"></span></span><span
-        class="nav-link-text ps-1">Pay-Point Orders</span></div>
+        class="nav-link-text ps-1">Paid Loans</span></div>
     </a><!-- more inner pages-->
 
-    <a class="nav-link @if(request()->routeIs('admin.completedorder')) active @endif" href="{{ route('admin.completedorder') }}">
+    <a class="nav-link @if(request()->routeIs('admin.overdueLoans')) active @endif" href="{{ route('admin.overdueLoans') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-check-circle"></span></span><span
-        class="nav-link-text ps-1">Completed Orders</span></div>
+        class="nav-link-text ps-1">Overdue Loans</span></div>
     </a><!-- more inner pages-->
 
-   <a class="nav-link @if(request()->routeIs('admin.rejectedorder')) active @endif" href="{{ route('admin.rejectedorder') }}">
+   <a class="nav-link @if(request()->routeIs('admin.rejectedLoans')) active @endif" href="{{ route('admin.rejectedLoans') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
             class="fas fa-times-circle"></span></span><span
-        class="nav-link-text ps-1">Rejected Orders</span></div>
-    </a><!-- more inner pages--> --}}
+        class="nav-link-text ps-1">Rejected Loans</span></div>
+    </a><!-- more inner pages-->
 
 </li>
 

@@ -16,18 +16,18 @@ return new class extends Migration
             $table->unsignedBigInteger('borrower_id');
             $table->unsignedBigInteger('created_by_id');
             $table->string('created_by_type');
-            $table->decimal('application_fee', 15, 2);
-            $table->decimal('loan_amount', 15, 2);
+            $table->integer('application_fee');
+            $table->integer('loan_amount');
             $table->decimal('interest_rate', 5, 2)->comment('loan interest rate as a percentage');
             $table->integer('term')->comment('Loan term in months');
             $table->date('start_date');
             $table->date('due_date');
-            $table->decimal('amount_to_be_paid', 15, 2)->default(0.00); // Dynamic total with penalties
-            $table->decimal('paid_amount', 15, 2)->default(0.00); // Total paid
-            $table->decimal('penalty_amount', 15, 2)->default(0.00); // Accumulated penalties
+            $table->integer('amount_to_be_paid')->default(0); // Dynamic total with penalties
+            $table->integer('paid_amount')->default(0); // Total paid
+            $table->integer('penalty_amount')->default(0); // Accumulated penalties
             $table->decimal('daily_penalty_rate', 5, 2)->default(0.05)->comment('Daily penalty rate as a percentage');
             $table->text('description')->nullable();
-            $table->enum('status', ['pending', 'approved', 'rejected', 'ongoing', 'completed', 'paid'])->default('pending');
+            $table->enum('status', ['pending', 'ongoing', 'rejected', 'paid', 'overdue'])->default('pending');
             $table->timestamps();
             $table->softDeletes();
 

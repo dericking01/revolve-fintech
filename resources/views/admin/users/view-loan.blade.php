@@ -41,7 +41,7 @@
                 @foreach($loan->installments as $installment)
                     <tr>
                         <td>{{ ++$sn }}</td>
-                        <td>Tsh {{ number_format($installment->installed_amount, 2) }}</td>
+                        <td>Tsh {{ number_format($installment->installed_amount) }}</td>
                         <td>{{ $installment->paid_date ? \Carbon\Carbon::parse($installment->paid_date)->format('d M, Y') : 'Not Paid' }}</td>
                         <td>
                             <span class="badge badge-subtle-{{ $installment->status == 'paid' ? 'success' : ($installment->status == 'late' ? 'warning' : 'danger') }}">

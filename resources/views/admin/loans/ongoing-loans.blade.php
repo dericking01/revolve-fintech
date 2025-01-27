@@ -5,7 +5,7 @@
   <div class="card-header bg-light">
     <div class="row align-items-center">
       <div class="col">
-        <h5 class="mb-0">Pending Loans ({{ $loans->count() }})</h5>
+        <h5 class="mb-0">Ongoing Loans ({{ $loans->count() }})</h5>
       </div>
     </div>
   </div>
@@ -15,6 +15,7 @@
         <thead class="bg-200 text-900">
           <tr>
             <th>SN</th>
+            <th>Loan ID</th>
             <th>Customer</th>
             <th>Amount</th>
             <th>Status</th>
@@ -25,10 +26,11 @@
           @foreach ($loans as $key => $loan)
           <tr>
             <td>{{ $key + 1 }}</td>
+            <td>{{ $loan->id }}</td>
             <td>{{ $loan->borrower->name }}</td>
             <td>{{ number_format($loan->loan_amount) }}</td>
             <td>
-              <span class="badge bg-warning text-dark">PENDING</span>
+              <span class="badge bg-primary text-dark">ONGOING</span>
             </td>
             <td>
               <button class="btn btn-sm btn-success" onclick="window.location.href='{{ route('borrower.view-loan', $loan->id) }}'">View</button>

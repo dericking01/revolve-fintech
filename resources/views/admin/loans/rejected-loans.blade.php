@@ -5,7 +5,7 @@
   <div class="card-header bg-light">
     <div class="row align-items-center">
       <div class="col">
-        <h5 class="mb-0">Pending Loans ({{ $loans->count() }})</h5>
+        <h5 class="mb-0">Rejected Loans ({{ $loans->count() }})</h5>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
             <td>{{ $loan->borrower->name }}</td>
             <td>{{ number_format($loan->loan_amount) }}</td>
             <td>
-              <span class="badge bg-warning text-dark">PENDING</span>
+              <span class="badge bg-danger text-dark">REJECTED</span>
             </td>
             <td>
               <button class="btn btn-sm btn-success" onclick="window.location.href='{{ route('borrower.view-loan', $loan->id) }}'">View</button>
@@ -90,8 +90,6 @@
                                 <label for="status{{ $loan->id }}" class="form-label">Status</label>
                                 <select name="status" class="form-select" id="status{{ $loan->id }}" required>
                                     <option value="pending" {{ old('status', $loan->status) == 'pending' ? 'selected' : '' }}>Pending</option>
-                                    <option value="paid" {{ old('status', $loan->status) == 'paid' ? 'selected' : '' }}>Paid</option>
-                                    <option value="rejected" {{ old('status', $loan->status) == 'rejected' ? 'selected' : '' }}>Rejected</option>
                                 </select>
                             </div>
                         </div>

@@ -145,6 +145,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('create-loan', [LoansController::class, 'LoanForm'])->name('admin.createLoan');
             Route::post('store-loan', [LoansController::class, 'storeLoan'])->name('admin.storeLoan');
             Route::get('pending-loans', [LoansController::class, 'pendingLoansindex'])->name('admin.pendingLoans');
+            Route::get('ongoing-loans', [LoansController::class, 'ongoingLoansindex'])->name('admin.ongoingLoans');
+            Route::get('paid-loans', [LoansController::class, 'paidLoansindex'])->name('admin.paidLoans');
+            Route::get('overdue-loans', [LoansController::class, 'overdueLoansindex'])->name('admin.overdueLoans');
+            Route::get('rejected-loans', [LoansController::class, 'rejectedLoansindex'])->name('admin.rejectedLoans');
             Route::put('update-loan/{id}', [LoansController::class, 'updateLoan'])->name('admin.loan.update');
             Route::delete('destroy-loan', [LoansController::class, 'deleteLoan'])->name('admin.loan.delete');
 

@@ -27,10 +27,10 @@ class LoanInstallmentsSeeder extends Seeder
 
                 DB::table('loan_installments')->insert([
                     'loan_id' => $loanId,
-                    'installed_amount' => $faker->randomFloat(2, 5000, 300000), // Random installment amount
+                    'installed_amount' => $faker->numberBetween(5000, 300000), // Random installment amount
                     'due_date' => $dueDateFormatted, // Optional due date
                     'paid_date' => $paidDateFormatted,   // Optional paid date
-                    'status' => $faker->randomElement(['due', 'paid', 'late']), // Random status
+                    'status' => $faker->randomElement(['pending', 'paid', 'overdue']), // Random status
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

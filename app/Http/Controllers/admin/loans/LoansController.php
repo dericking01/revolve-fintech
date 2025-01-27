@@ -112,10 +112,11 @@ class LoansController extends Controller
         $loan->start_date = $startDate->toDateTimeString(); // Save as a formatted string
         $loan->due_date = $dueDate->toDateTimeString(); // Save as a formatted string
         $loan->amount_to_be_paid = $validated['amount_to_be_paid'];
+        $loan->status = $request->status;
         // dd($loan);
         $loan->save();
 
-        Toastr::success('Loan created successfully!');
+        Toastr::success('Loan Updated successfully!');
         return back();
     }
 
@@ -137,6 +138,30 @@ class LoansController extends Controller
     {
         $loans = Loan::where('status', 'pending')->latest()->get();
         return view('admin.loans.pending-loans', compact('loans'));
+    }
+
+    public function overdueLoansindex()
+    {
+        $loans = Loan::where('status', 'overdue')->latest()->get();
+        return view('admin.loans.overdue-loans', compact('loans'));
+    }
+
+    public function paidLoansindex()
+    {
+        $loans = Loan::where('status', 'paid')->latest()->get();
+        return view('admin.loans.paid-loans', compact('loans'));
+    }
+
+    public function ongoingLoansindex()
+    {
+        $loans = Loan::where('status', 'ongoing')->latest()->get();
+        return view('admin.loans.ongoing-loans', compact('loans'));
+    }
+
+    public function rejectedLoansindex()
+    {
+        $loans = Loan::where('status', 'rejected')->latest()->get();
+        return view('admin.loans.rejected-loans', compact('loans'));
     }
 
 

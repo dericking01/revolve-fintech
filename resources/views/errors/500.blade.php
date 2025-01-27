@@ -88,7 +88,7 @@
             <a href="{{ url()->previous() }}">Go Back</a>
         </div>
         <footer>
-            &copy; {{ date('Y') }} Dodoki Investments Co Ltd. <br> All rights reserved.
+            &copy; {{ date('Y') }} REVOLVE Company Ltd. <br> All rights reserved.
         </footer>
     </div>
 </body>
