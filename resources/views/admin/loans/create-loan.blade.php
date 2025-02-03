@@ -6,7 +6,7 @@
     <div class="card-header">
       <div class="row flex-between-end">
         <div class="col-auto align-self-center">
-          <h5 class="mb-0" id="validation-example">Create a Loan for a Loanee</h5>
+          <h5 class="mb-0" id="validation-example">Create a Loan for a Loanee/Borrower</h5>
         </div>
       </div>
     </div>
@@ -73,6 +73,17 @@
     </select>
   </div>
 
+  <!-- Loan Repayment Mode -->
+  <div class="mb-3">
+    <label for="term">Loan Repayment Mode</label>
+    <select class="form-select" id="repayment_mode" name="repayment_mode">
+      <option value="">Select Mode...</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </div>
+
   <!-- Start Date -->
   <div class="mb-3">
     <label for="start_date" class="form-label">Start Date</label>
@@ -86,7 +97,28 @@
   </div>
 
   <div class="mb-3">
-    <label for="description" class="form-label">Description</label>
+    <label for="validationCustom05" class="form-label">Sponsor/Guarantor's Name</label>
+    <input class="form-control @error('sponsor_name') is-invalid @enderror" id="validationCustom05" value="{{ old('sponsor_name') }}" type="text" name="sponsor_name" autocomplete="on" placeholder="Loanee's sponsor_name" required />
+    @error('sponsor_name')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <div class="mb-3">
+    <label for="validationCustom04" class="form-label">Sponsor/Guarantor's Phone Number</label>
+    <input class="form-control @error('sponsor_phone') is-invalid @enderror" id="validationCustom04" value="{{ old('sponsor_phone') }}" type="phone" name="sponsor_phone" autocomplete="on" placeholder="start with 0" required />
+    @error('sponsor_phone')
+      <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Collaterals</label>
+    <textarea class="form-control" id="description" name="collaterals" rows="4" placeholder="Enter Collaterals"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Loan Description</label>
     <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter loan description or additional details"></textarea>
   </div>
 

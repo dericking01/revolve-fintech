@@ -17,7 +17,7 @@
 
 <div class="card mb-3">
     <div class="card-body">
-        <h5 class="mb-3">Borrower Details</h5>
+        <h5 class="mb-3">Loanee/Borrower's Details</h5>
         <p><strong>Name:</strong> {{ $loan->borrower->name }}</p>
         <p><strong>Email:</strong> <a href="mailto:{{ $loan->borrower->email }}">{{ $loan->borrower->email }}</a></p>
         <p><strong>Phone:</strong> <a href="tel:{{ $loan->borrower->phone }}">{{ $loan->borrower->phone }}</a></p>

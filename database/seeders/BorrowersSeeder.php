@@ -36,7 +36,6 @@ class BorrowersSeeder extends Seeder
                 'income' => $faker->randomFloat(2, 1000, 10000), // Between 1000 and 10000
                 'date_of_birth' => $faker->date('Y-m-d', '2002-01-01'),
                 'gender' => $faker->randomElement(['male', 'female', 'other']),
-                'sponsor_name' => $faker->name,
                 'branch_id' => $faker->randomElement($branches),
                 'loanee_id' => $borrowerId,
                 'status' => $faker->randomElement(['active', 'inactive', 'blacklisted']),

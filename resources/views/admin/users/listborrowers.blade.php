@@ -338,18 +338,6 @@
 
                         <div class="col-md-12">
                             <div class="mb-3">
-                              <label for="validationCustom05" class="form-label">Sponsor's Name</label>
-                              <input class="form-control @error('sponsor_name') is-invalid @enderror" id="validationCustom05" value="{{ old('sponsor_name') }}" type="text" name="sponsor_name" autocomplete="on" placeholder="Loanee's sponsor_name" required />
-                              @error('sponsor_name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                              @enderror
-                            </div>
-                          </div>
-
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="mb-3">
                                 <label for="organizerSingle2">Branch Name</label>
                                 <select class="form-select js-choice" id="organizerSingle2" size="1" required="required" name="branch_id" data-options='{"removeItemButton":true,"placeholder":true}'>
                                     <option value="">Select branch...</option>

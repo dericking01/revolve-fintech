@@ -29,8 +29,12 @@ class LoansSeeder extends Seeder
                 'loan_amount' => $faker->numberBetween(100000, 5000000), // Loan amount between 100k and 5M
                 'interest_rate' => $faker->numberBetween(2, 5, 20),     // Interest rate between 5% and 20%
                 'term' => $faker->randomElement([1, 2, 3]),          // Term in months (1, 2, or 3)
+                'repayment_mode' => $faker->randomElement(['daily', 'weekly', 'monthly']),
                 'start_date' => $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d'),
                 'due_date' => $faker->dateTimeBetween('now', '+3 months')->format('Y-m-d'),
+                'sponsor_name' => $faker->name,
+                'sponsor_phone' => $faker->unique()->phoneNumber,
+                'collaterals' => $faker->sentence,
                 'description' => $faker->sentence,
                 'status' => $faker->randomElement(['pending', 'ongoing', 'rejected', 'paid', 'overdue']),
                 'created_at' => now(),

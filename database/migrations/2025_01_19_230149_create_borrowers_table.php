@@ -23,7 +23,6 @@ return new class extends Migration
             $table->decimal('income', 15, 2)->nullable();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->string('sponsor_name');
             $table->unsignedBigInteger('branch_id')->nullable();
             $table->string('loanee_id')->unique();
             $table->enum('status', ['active', 'inactive', 'blacklisted'])->default('active');

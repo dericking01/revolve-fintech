@@ -51,6 +51,7 @@ class LoansController extends Controller
             'loan_amount' => 'required|numeric|min:0',
             'interest_rate' => 'required|numeric|min:0|max:100',
             'term' => 'required|integer|min:1',
+            'repayment_mode' => 'required|in:daily,weekly,monthly',
             'start_date' => 'required|date',
             'amount_to_be_paid' => 'required|numeric|min:0',
         ]);
@@ -78,10 +79,15 @@ class LoansController extends Controller
         $loan->loan_amount = $validated['loan_amount'];
         $loan->interest_rate = $validated['interest_rate'];
         $loan->term = $validated['term'];
+        $loan->repayment_mode = $validated['repayment_mode'];
         $loan->start_date = $startDate->toDateTimeString(); // Save as a formatted string
         $loan->due_date = $dueDate->toDateTimeString(); // Save as a formatted string
         $loan->amount_to_be_paid = $validated['amount_to_be_paid'];
-        // dd($loan);
+        $loan->sponsor_name = $request->sponsor_name;
+        $loan->sponsor_phone = $request->sponsor_phone;
+        $loan->description = $request->description;
+        $loan->collaterals = $request->collaterals;
+        dd($loan);
         $loan->save();
 
         Toastr::success('Loan created successfully!');
